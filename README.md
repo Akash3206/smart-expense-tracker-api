@@ -64,14 +64,30 @@ cd smart-expense-tracker-api
 
 **3. Build the project and download dependencies**
 
+> **Linux / macOS**
+
 ```bash
-mvn clean install
+./mvnw clean install
+```
+
+> **Windows**
+
+```cmd
+mvnw.cmd clean install
 ```
 
 **4. Start the application**
 
+> **Linux / macOS**
+
 ```bash
-mvn spring-boot:run
+./mvnw spring-boot:run
+```
+
+> **Windows**
+
+```cmd
+mvnw.cmd spring-boot:run
 ```
 > This command blocks the terminal while the application is running. Leave it running and open a new terminal window to execute the verification step below.
 
@@ -189,10 +205,18 @@ The project includes a comprehensive automated test suite covering the applicati
 
 ### Run the Test Suite
 
-Execute the following command from the project root directory to run all automated tests:
+Execute the following command from the project root directory to run all automated tests.
+
+> **Linux / macOS**
 
 ```bash
-mvn test
+./mvnw test
+```
+
+> **Windows**
+
+```cmd
+mvnw.cmd test
 ```
 ---
 
