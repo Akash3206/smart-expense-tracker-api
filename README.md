@@ -8,6 +8,18 @@ The application is organized into controller, service, and repository layers. Re
 
 The current implementation uses an in-memory repository for persistence. This keeps the project lightweight while allowing the persistence layer to be replaced by a database implementation with minimal changes to the rest of the application.
 
+## Table of Contents
+
+- [Technology Stack](#technology-stack)
+- [Getting Started](#getting-started)
+- [Features](#features)
+- [API Endpoints](#api-endpoints)
+- [Testing](#testing)
+- [Architecture](#architecture)
+- [Design Decisions](#design-decisions)
+- [Assumptions](#assumptions)
+- [Future Improvements](#future-improvements)
+
 ## Technology Stack
 
 | Technology | Purpose |
@@ -171,6 +183,56 @@ The API returns structured JSON responses for validation failures and applicatio
 }
 ```
 
+## Testing
+
+The project includes a comprehensive automated test suite covering the application's core functionality, business logic, REST API, and end-to-end request flow.
+
+### Run the Test Suite
+
+Execute the following command from the project root directory to run all automated tests:
+
+```bash
+mvn test
+```
+---
+
+### Test Coverage
+
+
+| Test Category | Coverage |
+|---------------|----------|
+| **Application Context** | Verifies that the Spring Boot application context loads successfully. |
+| **Repository Unit Tests** | Validates CRUD operations, category filtering, and repository edge cases. |
+| **Service Unit Tests** | Verifies business logic, total calculations, and exception handling. |
+| **Controller (Web MVC) Tests** | Tests REST endpoints, request validation, HTTP status codes, and error responses using MockMvc. |
+| **Integration Tests** | Verifies complete request flow across the Controller, Service, and Repository layers without mocking application components. |
+
+---
+
+### Integration Scenarios
+
+The integration tests cover the following end-to-end workflows:
+
+- Create an expense and retrieve it successfully.
+- Create multiple expenses and verify the calculated total.
+- Create an expense, delete it, and verify its removal.
+- Attempt to delete a non-existent expense and verify the `404 Not Found` response.
+
+---
+
+### Test Summary
+
+| Category | Count |
+|----------|------:|
+| Application Context Tests | 1 |
+| Repository Unit Tests | 8 |
+| Service Unit Tests | 9 |
+| Controller (Web MVC) Tests | 15 |
+| Integration Tests | 4 |
+| **Total Automated Tests** | **37** |
+All tests are self-contained and can be executed using a single Maven command without requiring any external services, database setup, or additional configuration.
+
+
 ## Architecture
 
 The application follows a layered architecture where each layer has a well-defined responsibility. Incoming requests are validated and mapped to domain models before reaching the business logic, while responses are converted back into DTOs before being returned to the client.
@@ -244,54 +306,6 @@ src/
 | **Mapper** | Converts between DTOs and domain models. |
 | **Exception** | Provides centralized exception handling and consistent error responses. |
 
-## Testing
-
-The project includes a comprehensive automated test suite covering the application's core functionality, business logic, REST API, and end-to-end request flow.
-
-### Run the Test Suite
-
-Execute the following command from the project root directory to run all automated tests:
-
-```bash
-mvn test
-```
----
-
-### Test Coverage
-
-
-| Test Category | Coverage |
-|---------------|----------|
-| **Application Context** | Verifies that the Spring Boot application context loads successfully. |
-| **Repository Unit Tests** | Validates CRUD operations, category filtering, and repository edge cases. |
-| **Service Unit Tests** | Verifies business logic, total calculations, and exception handling. |
-| **Controller (Web MVC) Tests** | Tests REST endpoints, request validation, HTTP status codes, and error responses using MockMvc. |
-| **Integration Tests** | Verifies complete request flow across the Controller, Service, and Repository layers without mocking application components. |
-
----
-
-### Integration Scenarios
-
-The integration tests cover the following end-to-end workflows:
-
-- Create an expense and retrieve it successfully.
-- Create multiple expenses and verify the calculated total.
-- Create an expense, delete it, and verify its removal.
-- Attempt to delete a non-existent expense and verify the `404 Not Found` response.
-
----
-
-### Test Summary
-
-| Category | Count |
-|----------|------:|
-| Application Context Tests | 1 |
-| Repository Unit Tests | 8 |
-| Service Unit Tests | 9 |
-| Controller (Web MVC) Tests | 15 |
-| Integration Tests | 4 |
-| **Total Automated Tests** | **37** |
-All tests are self-contained and can be executed using a single Maven command without requiring any external services, database setup, or additional configuration.
 
 ## Design Decisions
 
