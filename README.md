@@ -65,7 +65,7 @@ cd smart-expense-tracker-api
 **3. Build the project and download dependencies**
 
 ```bash
-mvn clean install -DskipTests
+mvn clean install
 ```
 
 **4. Start the application**
