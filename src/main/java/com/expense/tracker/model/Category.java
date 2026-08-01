@@ -1,6 +1,6 @@
 package com.expense.tracker.model;
 
-// Categories on which the expense is being tracked
+// Basic Categories on which the expense is being tracked
 public enum Category {
     FOOD,
     TRANSPORT,

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ExpenseMapper {
 
+    // Convert CreateExpenseRequest -> Expense
     public Expense toEntity(CreateExpenseRequest request) {
         Expense expense = new Expense();
 
@@ -18,6 +19,7 @@ public class ExpenseMapper {
         return expense;
     }
 
+    // Convert Expense -> ExpenseResponse
     public ExpenseResponse toResponse(Expense expense) {
         ExpenseResponse expenseResponse = new ExpenseResponse();
 

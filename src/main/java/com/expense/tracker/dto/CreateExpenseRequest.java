@@ -19,7 +19,7 @@ public class CreateExpenseRequest {
     @NotBlank(message = "Title is Required")
     private String title;
 
-    @NotNull(message = "Amount is required")
+    @NotNull(message = "Amount is required") // It should not be null and 0
     @DecimalMin(
             value = "0.01",
             message = "Amount Must be greater than zero"

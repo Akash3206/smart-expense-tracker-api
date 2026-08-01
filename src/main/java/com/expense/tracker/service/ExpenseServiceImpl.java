@@ -34,7 +34,7 @@ public class ExpenseServiceImpl implements  ExpenseService {
 
     @Override
     public List<ExpenseResponse> getAllExpenses() {
-        // TODO - Retrieve All Expenses and Convert them into List of ExpenseRepsonse
+        // Retrieve All Expenses and Convert them into List of ExpenseRepsonse
         return expenseRepository.findAll()
                 .stream()
                 .map(expenseMapper::toResponse)
@@ -43,7 +43,7 @@ public class ExpenseServiceImpl implements  ExpenseService {
 
     @Override
     public List<ExpenseResponse> getExpensesByCategory(Category category) {
-        // TODO - Retrieve All Expenses by Category and Convert them into List of ExpenseRepsonse
+        // Retrieve All Expenses by Category and Convert them into List of ExpenseRepsonse
         return expenseRepository.filterByCategory(category)
                 .stream()
                 .map(expenseMapper::toResponse)
@@ -52,7 +52,7 @@ public class ExpenseServiceImpl implements  ExpenseService {
 
     @Override
     public BigDecimal getTotalExpenses() {
-        // TODO - Retrieve All Expenses and Add the amount of all Expense and Convert it to BigDecimal
+        // Retrieve All Expenses and sum the amount of all Expenses, convert it to BigDecimal
         return expenseRepository.findAll()
                 .stream()
                 .map(Expense::getAmount)
@@ -61,7 +61,7 @@ public class ExpenseServiceImpl implements  ExpenseService {
 
     @Override
     public BigDecimal getTotalExpensesByCategory(Category category) {
-        // TODO - Retrieve All Expenses by Category and Add the amount of all Expense and Convert it to BigDecimal
+        // Retrieve All Expenses by Category and Add the amount of all Expenses, Convert it to BigDecimal
         return expenseRepository.filterByCategory(category)
                 .stream()
                 .map(Expense::getAmount)

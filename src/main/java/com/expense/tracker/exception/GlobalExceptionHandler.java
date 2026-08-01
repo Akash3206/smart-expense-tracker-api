@@ -15,6 +15,7 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    // Handles Exception if Expense is Not Found
     @ExceptionHandler(ExpenseNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleExceptionNotFound(ExpenseNotFoundException exception) {
 
@@ -30,6 +31,7 @@ public class GlobalExceptionHandler {
                 .body(errorResponse);
     }
 
+    // Handles Data Validation exceptions and returns them in JSON format
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ValidationErrorResponse> handleValidationErrors(MethodArgumentNotValidException exception) {
 

@@ -30,7 +30,7 @@ public class InMemoryExpenseRepository implements ExpenseRepository {
             expense.setId(id);
         }
 
-        // Handles insert + update
+        // Handles Insert + Update
         expenses.put(expense.getId(), expense);
         return expense;
     }
@@ -47,6 +47,7 @@ public class InMemoryExpenseRepository implements ExpenseRepository {
 
     @Override
     public List<Expense> filterByCategory(Category category) {
+        // Get expenses and filter them by category and return them by converting it to list
         return expenses.values()
                 .stream()
                 .filter(expense -> expense.getCategory() == category)
@@ -57,4 +58,15 @@ public class InMemoryExpenseRepository implements ExpenseRepository {
     public boolean deleteById(Long id) {
         return expenses.remove(id) != null;
     }
+
+    /**
+     * Clears the in-memory repository and resets the ID generator.
+     * Intended for use by integration tests to ensure test isolation.
+     */
+    @Override
+    public void clear() {
+        expenses.clear();
+        idGenerator.set(1);
+    }
+
 }

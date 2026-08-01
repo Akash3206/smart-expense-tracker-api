@@ -24,4 +24,7 @@ public interface ExpenseRepository {
     // DELETE an expense
     boolean deleteById(Long id);
 
+    // Used for Integration Testing
+    void clear();
+
 }
