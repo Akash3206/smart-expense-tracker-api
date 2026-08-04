@@ -152,7 +152,7 @@ http://localhost:8080
 | `GET` | `/api/expenses` | Retrieve all expenses. |
 | `GET` | `/api/expenses/category/{category}` | Retrieve all expenses for a specific category. |
 | `GET` | `/api/expenses/total` | Calculate the total amount of all expenses. |
-| `GET` | `/api/expenses/total/{category}` | Calculate the total amount for a specific category. |
+| `GET` | `/api/expenses/total/category/{category}` | Calculate the total amount for a specific category. |
 | `DELETE` | `/api/expenses/{id}` | Delete an expense by its ID. |
 
 ---
